@@ -2,7 +2,7 @@ NAME=phonebook
 CC=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98
 
-CPP_FILES=${wildcard *.cpp}
+CPP_FILES= main.cpp Phonebook.cpp Contact.cpp
 CPP_OFILES=${CPP_FILES:.cpp=.o}
 
 all:$(NAME)
@@ -10,7 +10,7 @@ all:$(NAME)
 $(NAME):$(CPP_OFILES)
 	$(CC) $(FLAGS) $(CPP_OFILES) -o $(NAME)
 
-%.o:%.c
+%.o:%.cpp
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
