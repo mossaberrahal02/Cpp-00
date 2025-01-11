@@ -52,7 +52,4 @@ void Contact::setphoneNumber(str phoneNumber)
 
 Contact::Contact()
 {
-    this->firstName = "default";
-    this->lastName = "default";
-    this->phoneNumber = "default";
 }

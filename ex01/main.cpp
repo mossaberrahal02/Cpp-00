@@ -15,7 +15,8 @@ int main()
             phonebook.search();
         else if (input == "display")
             phonebook.display();
-        if (input == "EXIT")
+        if (input == "EXIT" || input == "\0")
             break;
+		std::cout<<std::endl;
     }
 }
