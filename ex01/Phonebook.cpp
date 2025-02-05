@@ -9,12 +9,12 @@ int Phonebook::checkInput(str input)
 
 str Phonebook::checker(str input, str field)
 {
-    if(input == "\0")
-        return NULL;
     while (!this->checkInput(input))
     {
         std::cout<<"required  ==> enter the "<<field<<" = ";
         std::getline(std::cin, input);
+        if (input.empty())
+            _exit(1);
     }
     return input;
 }

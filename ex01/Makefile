@@ -1,6 +1,6 @@
 NAME=phonebook
 CC=c++
-FLAGS=-Wall -Wextra -Werror -std=c++98
+FLAGS=-Wall -Wextra -Werror -std=c++98 -g3
 
 CPP_FILES= main.cpp Phonebook.cpp Contact.cpp
 CPP_OFILES=${CPP_FILES:.cpp=.o}
