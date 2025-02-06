@@ -1,22 +1,31 @@
-#include "instance.hpp"
+#include "PhoneBook.hpp"
+#include <string>
+#include <stdlib.h>
+#include <iostream>
+
 
 int main()
 {
-    Phonebook phonebook;
-    str input;
-
-    while (1)
-    {
-		std::cout << "Type ADD, SEARCH or EXIT : ";
+	int i = 0;
+	PhoneBook instance;
+	std::string input;
+	while(1)
+	{
+		std::cout << "chose between ADD SEARCH EXIT: ";
 		std::getline(std::cin, input);
-        if (input == "ADD")
-            phonebook.add();
-        else if (input == "SEARCH")
-            phonebook.search();
-        else if (input == "display")
-            phonebook.display();
-        if (input == "EXIT" || input == "\0")
-            break;
-		std::cout<<std::endl;
-    }
+		if(std::cin.eof())
+		{
+			std::cout << "\nexit\n";
+			return 1;
+		}
+		if(input == "ADD")
+		{
+			instance.add(i);
+			i = (i + 1) % 8;
+		}
+		else if(input == "SEARCH")
+			instance.search();
+		else if(input == "EXIT")
+			break;
+	}
 }

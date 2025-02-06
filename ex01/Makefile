@@ -1,21 +1,15 @@
-NAME=phonebook
-CC=c++
-FLAGS=-Wall -Wextra -Werror -std=c++98 -g3
-
-CPP_FILES= main.cpp Phonebook.cpp Contact.cpp
-CPP_OFILES=${CPP_FILES:.cpp=.o}
+NAME=PhoneBook
+CXX=c++
+CXXFLAGS=-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CPP_FILES=main.cpp Contact.cpp PhoneBook.cpp
+O_FILES=$(CPP_FILES:.cpp=.o)
 
 all:$(NAME)
 
-$(NAME):$(CPP_OFILES)
-	$(CC) $(FLAGS) $(CPP_OFILES) -o $(NAME)
-
-%.o:%.cpp
-	$(CC) $(FLAGS) -c $< -o $@
-
+$(NAME):$(O_FILES)
+	$(CXX) $(CXXFLAGS) $(O_FILES) -o $(NAME)
 clean:
-	rm -f $(CPP_OFILES)
-
-fclean: clean
+	rm -f $(O_FILES)
+fclean:clean
 	rm -f $(NAME)
 re: fclean all
